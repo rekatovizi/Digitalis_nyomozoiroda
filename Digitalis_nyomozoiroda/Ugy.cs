@@ -31,5 +31,30 @@ namespace Digitalis_nyomozoiroda
         public string Allapot { get => allapot; set => allapot = value; }
         internal List<Szemely> Ugy_erintettek { get => ugy_erintettek; set => ugy_erintettek = value; }
         internal List<Bizonyitek> Ugy_bizonyitekok { get => ugy_bizonyitekok; set => ugy_bizonyitekok = value; }
+
+        public string allapotvizsgalat()
+        {
+            string valasz;
+            do
+            {
+                Console.WriteLine($"Az ügy aktuális állapota: {this.allapot} szeretne rajta változtatni?(i/n))");
+                valasz = Console.ReadLine();
+                if (valasz == "i")
+                {
+                    Console.WriteLine("Adja meg az új állapotot:");
+                    string ujallapot = Console.ReadLine();
+                    this.allapot = ujallapot;
+                }
+                else if (valasz == "n")
+                {
+                    Console.WriteLine("Az ügy állapota nem változott.");
+                }
+                else
+                {
+                    Console.WriteLine("Érvénytelen válasz.");
+                }
+            } while (valasz != "i" && valasz != "n");
+            return $"Az ügy állapota megváltozott: {valasz}";
+        }
     }
 }
