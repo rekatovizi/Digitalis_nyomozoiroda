@@ -15,7 +15,7 @@ namespace Digitalis_nyomozoiroda
         private List<Szemely> ugy_erintettek;
         private List<Bizonyitek> ugy_bizonyitekok;
 
-        public Ugy(string ugyazonosito, string cim, string leiras, string allapot, List<Szemely> ugy_erintettek, List<Bizonyitek> ugy_bizonyitekok)
+        public Ugy(string ugyazonosito, string cim, string leiras, string allapot)
         {
             this.ugyazonosito = ugyazonosito;
             this.cim = cim;
@@ -47,7 +47,7 @@ namespace Digitalis_nyomozoiroda
                 }
                 else if (valasz == "n")
                 {
-                    Console.WriteLine("Az ügy állapota nem változott.");
+                    return "Az ügy állapota nem változott.";
                 }
                 else
                 {
