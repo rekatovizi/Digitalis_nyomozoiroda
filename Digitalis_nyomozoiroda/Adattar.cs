@@ -8,22 +8,20 @@ namespace Digitalis_nyomozoiroda
 {
     internal class Adattar
     {
-        private List<Felhasznalo> felhasznalok;
         private List<Ugy> ugyek;
         private List<Szemely> szemelyek;
         private List<Bizonyitek> bizonyitekok;
 
-        public Adattar(List<Felhasznalo> felhasznalok, List<Ugy> ugyek, List<Szemely> szemelyek, List<Bizonyitek> bizonyitekok)
+        public Adattar()
         {
-            this.felhasznalok = felhasznalok;
-            this.ugyek = ugyek;
-            this.szemelyek = szemelyek;
-            this.bizonyitekok = bizonyitekok;
+            
+            this.ugyek = [];
+            this.szemelyek = [];
+            this.bizonyitekok = [];
         }
 
-        internal List<Felhasznalo> Felhasznalok { get => felhasznalok; set => felhasznalok = value; }
-        internal List<Ugy> Ugyek { get => ugyek; set => ugyek = value; }
-        internal List<Szemely> Szemelyek { get => szemelyek; set => szemelyek = value; }
-        internal List<Bizonyitek> Bizonyitekok { get => bizonyitekok; set => bizonyitekok = value; }
+        internal List<Ugy> Ugyek { get { return ugyek; } }
+        internal List<Szemely> Szemelyek { get { return szemelyek; } }
+        internal List<Bizonyitek> Bizonyitekok { get { return bizonyitekok; } }
     }
 }

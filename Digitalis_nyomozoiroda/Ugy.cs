@@ -32,7 +32,7 @@ namespace Digitalis_nyomozoiroda
         internal List<Szemely> Ugy_erintettek { get => ugy_erintettek; set => ugy_erintettek = value; }
         internal List<Bizonyitek> Ugy_bizonyitekok { get => ugy_bizonyitekok; set => ugy_bizonyitekok = value; }
 
-        public string allapotvizsgalat()
+        public string allapotvaltosztatas()
         {
             string valasz;
             do
@@ -127,9 +127,9 @@ namespace Digitalis_nyomozoiroda
                     string uj_nev = Console.ReadLine();
                     Console.Write("Adja meg az érintett életkorát: ");
                     int uj_eletkor = int.Parse(Console.ReadLine());
-                    Console.Write("Adja meg az érintett nemét: ");
-                    string uj_nem = Console.ReadLine();
-                    Szemely uj_erintett = new Szemely(uj_nev, uj_eletkor, uj_nem);
+                    Console.Write("Adjon hozzá mgjegyzést");
+                    string uj_megjegyzes = Console.ReadLine();
+                    Szemely uj_erintett = new Szemely(uj_nev, uj_eletkor, uj_megjegyzes);
                     ugy_erintettek.Add(uj_erintett);
                     Console.WriteLine("Új érintett hozzáadva.");
                 }
