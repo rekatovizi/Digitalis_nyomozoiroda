@@ -59,7 +59,15 @@ namespace Digitalis_nyomozoiroda
         }
         public void Bizonyitek_hozzaadasa(Bizonyitek b)
         {
-            ugy_bizonyitekok.Add(b);
+            if (ugy_bizonyitekok.Contains(b))
+            {
+                Console.WriteLine("Ez a bizonyíték már hozzá van adva az ügyhöz.");
+            }
+            else
+            {
+                ugy_bizonyitekok.Add(b);
+                Console.WriteLine("Bizonyíték hozzáadva az ügyhöz.");
+            }
         }
         public void Bizonyitek_hozzaadasa_egyesevel()
         {
@@ -94,11 +102,61 @@ namespace Digitalis_nyomozoiroda
             } while (valasz != "i" && valasz != "n");
 
         }
+        public void Bizonyitek_torlese(Bizonyitek b)
+        {
+            if (ugy_bizonyitekok.Contains(b))
+            {
+                ugy_bizonyitekok.Remove(b);
+                Console.WriteLine("Bizonyíték törölve az ügyből.");
+            }
+            else
+            {
+                Console.WriteLine("Ez a bizonyíték nem található az ügyben.");
+            }
+        }
+        public void Erintettek_hozzaadasa_egyesevel()
+        {
+            string valasz;
+            do
+            {
+                Console.WriteLine("Szeretne új érintettet hozzáadni? (i/n)");
+                valasz = Console.ReadLine();
+                if (valasz == "i")
+                {
+                    Console.Write("Adja meg az érintett nevét: ");
+                    string uj_nev = Console.ReadLine();
+                    Console.Write("Adja meg az érintett életkorát: ");
+                    int uj_eletkor = int.Parse(Console.ReadLine());
+                    Console.Write("Adja meg az érintett nemét: ");
+                    string uj_nem = Console.ReadLine();
+                    Szemely uj_erintett = new Szemely(uj_nev, uj_eletkor, uj_nem);
+                    ugy_erintettek.Add(uj_erintett);
+                    Console.WriteLine("Új érintett hozzáadva.");
+                }
+                else if (valasz != "n")
+                {
+                    Console.WriteLine("nincs új érintett");
+                }
+                else
+                {
+                    Console.WriteLine("Érvénytelen válasz, kérem adja meg újra.");
+                }
+            } while (valasz != "i" && valasz != "n");
+        }
         public void Erintettek_hozzaadasa(Szemely s)
         {
-            ugy_erintettek.Add(s);
+            if (ugy_erintettek.Contains(s))
+            {
+                Console.WriteLine("Ez az érintett már hozzá van adva az ügyhöz.");
+            }
+            else
+            {
+               ugy_erintettek.Add(s);
+            }
+                
         }
+
         
 
-        }
+    }
 }
