@@ -20,6 +20,8 @@ namespace Digitalis_nyomozoiroda
 
         public int Gyanusitottsagi_szint { get => gyanusitottsagi_szint; set => gyanusitottsagi_szint = value; }
         public string Statusz { get => statusz; set => statusz = value; }
+
         
+
     }
 }

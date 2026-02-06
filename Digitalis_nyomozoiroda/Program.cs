@@ -83,11 +83,12 @@ namespace Digitalis_nyomozoiroda
                         valasztas = Console.ReadLine();
                         switch (valasztas)
                         {
-                            case "1":
+                            case "1": //még nincs kész (kel külön tanu gyanusítot felhasználó ellenörzés)
                                 Console.Write("Add meg az ügy azonosítóját, amelyhez érintettet szeretnél hozzáadni: ");
                                 string ugyAzonositoErintett = Console.ReadLine();
                                 Ugy ugyErintett = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoErintett);
                                 ugyErintett.Erintettek_hozzaadasa_egyesevel();
+                                
                                 break;
                             case "2":
                                 Console.Write("Add meg az ügy azonosítóját, amelyből érintettet szeretnél törölni: ");

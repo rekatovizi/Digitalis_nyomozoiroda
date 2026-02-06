@@ -12,7 +12,7 @@ namespace Digitalis_nyomozoiroda
         private string azonosito;
        
 
-        public Felhasznalo(string nev, int eletkor, string megjegyzes, string azonosito ) : base(nev, eletkor, megjegyzes)
+        public Felhasznalo(string nev, int eletkor, string megjegyzes, string azonosito ) : base(nev, eletkor, "felhasználó")
         {
             this.azonosito = azonosito;
         }
