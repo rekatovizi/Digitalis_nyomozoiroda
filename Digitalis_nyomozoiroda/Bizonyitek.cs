@@ -26,41 +26,10 @@ namespace Digitalis_nyomozoiroda
         public string Leiras { get => leiras; set => leiras = value; }
         public int Megbizhatosagi_etek { get => megbizhatosagi_etek; set => megbizhatosagi_etek = value; }
 
-        public void Bizonyitek_hozzaadasa(Ugy ugy)
-        {
-            string valasz;
-            do
-            {
-                Console.WriteLine("Szeretne új bizonyítékot hozzáadni? (i/n)");
-                valasz = Console.ReadLine();
-                if (valasz == "i")
-                {
-                    Console.Write("Adja meg a bizonyíték azonosítóját: ");
-                    string uj_azonosito = Console.ReadLine();
-                    Console.Write("Adja meg a bizonyíték típusát: ");
-                    string uj_tipus = Console.ReadLine();
-                    Console.Write("Adja meg a bizonyíték leírását: ");
-                    string uj_leiras = Console.ReadLine();
-                    Console.Write("Adja meg a bizonyíték megbízhatósági értékét (1-10): ");
-                    int uj_megbizhatosagi_ertek = int.Parse(Console.ReadLine());
-                    Bizonyitek uj_bizonyitek = new Bizonyitek(uj_azonosito, uj_tipus, uj_leiras, uj_megbizhatosagi_ertek);
-                    ugy.Ugy_bizonyitekok.Add(uj_bizonyitek);
-                    Console.WriteLine("Új bizonyíték hozzáadva.");
-                }
-                else if (valasz != "n")
-                {
-                    Console.WriteLine("nincs új bizonyíték");
-                }
-                else
-                {
-                    Console.WriteLine("Érvénytelen válasz, kérem adja meg újra.");
-                }
-
-            } while (valasz!="i" && valasz!="n");
-            
-        }
 
         
+
+
 
     }
 }

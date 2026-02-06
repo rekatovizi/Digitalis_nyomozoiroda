@@ -57,5 +57,48 @@ namespace Digitalis_nyomozoiroda
             } while (valasz != "i" && valasz != "n");
             return allapot;
         }
-    }
+        public void Bizonyitek_hozzaadasa(Bizonyitek b)
+        {
+            ugy_bizonyitekok.Add(b);
+        }
+        public void Bizonyitek_hozzaadasa_egyesevel()
+        {
+            string valasz;
+            do
+            {
+                Console.WriteLine("Szeretne új bizonyítékot hozzáadni? (i/n)");
+                valasz = Console.ReadLine();
+                if (valasz == "i")
+                {
+                    Console.Write("Adja meg a bizonyíték azonosítóját: ");
+                    string uj_azonosito = Console.ReadLine();
+                    Console.Write("Adja meg a bizonyíték típusát: ");
+                    string uj_tipus = Console.ReadLine();
+                    Console.Write("Adja meg a bizonyíték leírását: ");
+                    string uj_leiras = Console.ReadLine();
+                    Console.Write("Adja meg a bizonyíték megbízhatósági értékét (1-10): ");
+                    int uj_megbizhatosagi_ertek = int.Parse(Console.ReadLine());
+                    Bizonyitek uj_bizonyitek = new Bizonyitek(uj_azonosito, uj_tipus, uj_leiras, uj_megbizhatosagi_ertek);
+                    ugy_bizonyitekok.Add(uj_bizonyitek);
+                    Console.WriteLine("Új bizonyíték hozzáadva.");
+                }
+                else if (valasz != "n")
+                {
+                    Console.WriteLine("nincs új bizonyíték");
+                }
+                else
+                {
+                    Console.WriteLine("Érvénytelen válasz, kérem adja meg újra.");
+                }
+
+            } while (valasz != "i" && valasz != "n");
+
+        }
+        public void Erintettek_hozzaadasa(Szemely s)
+        {
+            ugy_erintettek.Add(s);
+        }
+        
+
+        }
 }

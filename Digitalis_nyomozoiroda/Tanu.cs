@@ -6,21 +6,31 @@ using System.Threading.Tasks;
 
 namespace Digitalis_nyomozoiroda
 {
-    internal class Tanu
+    internal class Tanu:Szemely
     {
-        private Szemely tanu_szemely;
+       
         private string vallomas;
         private string vallomas_datuma;
 
-        public Tanu(Szemely tanu_szemely, string vallomas, string vallomas_datuma)
+        public Tanu(string nev, int eletkor) : base(nev, eletkor, "tanu")
         {
-            this.tanu_szemely = tanu_szemely;
-            this.vallomas = vallomas;
-            this.vallomas_datuma = vallomas_datuma;
         }
+
+        public void VallomasFelvetel(string vallomas)
+        {
+            this.vallomas = vallomas;
+            this.vallomas_datuma = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
 
         public string Vallomas { get => vallomas; set => vallomas = value; }
         public string Vallomas_datuma { get => vallomas_datuma; set => vallomas_datuma = value; }
-        internal Szemely Tanu_szemely { get => tanu_szemely; set => tanu_szemely = value; }
+      
+    
+        public override string ToString()
+        {
+            return base.ToString()+" \nVallomás: "+Vallomas+" (Dátum: "+Vallomas_datuma;
+        }
+
     }
 }

@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace Digitalis_nyomozoiroda
 {
-    internal class Felhasznalo
+    internal class Felhasznalo:Szemely
     {
-        private string nev;
+       
         private string azonosito;
-        private string szerepkor;
+       
 
-        public Felhasznalo(string nev, string azonosito, string szerepkor)
+        public Felhasznalo(string nev, int eletkor, string megjegyzes, string azonosito ) : base(nev, eletkor, megjegyzes)
         {
-            this.nev = nev;
             this.azonosito = azonosito;
-            this.szerepkor = szerepkor;
         }
 
-        public string Nev { get => nev; set => nev = value; }
+       
         public string Azonosito { get => azonosito; set => azonosito = value; }
-        public string Szerepkor { get => szerepkor; set => szerepkor = value; }
+
     }
 }
