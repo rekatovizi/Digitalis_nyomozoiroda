@@ -151,12 +151,23 @@ namespace Digitalis_nyomozoiroda
             }
             else
             {
-               ugy_erintettek.Add(s);
+                ugy_erintettek.Add(s);
             }
-                
+
+        }
+        public void Erintettek_torlese(Szemely s)
+        {
+            if (ugy_erintettek.Contains(s))
+            {
+                ugy_erintettek.Remove(s);
+                Console.WriteLine("Érintett törölve az ügyből.");
+            }
+            else
+            {
+                Console.WriteLine("Ez az érintett nem található az ügyben.");
+            }
         }
 
-        
 
     }
 }
