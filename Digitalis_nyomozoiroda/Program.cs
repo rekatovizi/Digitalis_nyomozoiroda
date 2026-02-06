@@ -29,7 +29,10 @@
             Idovonal_esemeny esemeny2 = new Idovonal_esemeny("2024-02-10", "Tanúvallomás rögzítése");
 
             
-
+            ugy1.Ugy_erintettek = new List<Szemely> { szemely1, szemely2 };
+            ugy1.Ugy_bizonyitekok = new List<Bizonyitek> { bizonyitek1, bizonyitek2 };
+            ugy1.allapotvizsgalat();
+            
 
         }
     }

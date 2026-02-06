@@ -44,17 +44,18 @@ namespace Digitalis_nyomozoiroda
                     Console.WriteLine("Adja meg az új állapotot:");
                     string ujallapot = Console.ReadLine();
                     this.allapot = ujallapot;
+                    Console.WriteLine($"Az ügy állapota megváltozott: {allapot}");
                 }
                 else if (valasz == "n")
                 {
-                    return "Az ügy állapota nem változott.";
+                    Console.WriteLine("Az ügy állapota nem változott.");
                 }
                 else
                 {
                     Console.WriteLine("Érvénytelen válasz.");
                 }
             } while (valasz != "i" && valasz != "n");
-            return $"Az ügy állapota megváltozott: {valasz}";
+            return allapot;
         }
     }
 }
