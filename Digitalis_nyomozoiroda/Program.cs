@@ -21,7 +21,7 @@ namespace Digitalis_nyomozoiroda
                 {
                     case "1":
                         valasztas = "";
-                        Console.WriteLine("1 Új ugy létrehozása, 2 Állapot változtatás, 3 Bizonyíték hozzáadása, 4 bizonyíték törlése, 5 érintettek hozzáadása, 6 érintettek törlése ");
+                        Console.WriteLine("1 Új ugy létrehozása, 2 Ugy törlése, 3 Állapot változtatás, 4 Bizonyíték hozzáadása, 5 bizonyíték törlése, 6 érintettek hozzáadása, 7 érintettek törlése ");
                         valasztas = Console.ReadLine();
                         switch (valasztas)
                         {
@@ -56,11 +56,56 @@ namespace Digitalis_nyomozoiroda
                                 } while (valasz.ToLower() != "i" && valasz.ToLower() != "n");
                                 break;
                             case "2":
+                                Console.Write("Add meg az ügy azonosítóját, amelyet törölni szeretnél: ");
+                                string ugyAzonositoTorol = Console.ReadLine();
+                                Ugy ugyTorol = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoTorol);
+                                if (ugyTorol != null)
+                                {
+                                    adattar.Ugyek.Remove(ugyTorol);
+                                    Console.WriteLine("Ügy törölve!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nem található ilyen azonosítóval rendelkező ügy.");
+                                }
+                                break;
+                            case "3":
                                 Console.Write("Add meg az ügy azonosítóját, amelynek az állapotát változtatni szeretnéd: ");
                                 string ugyAzonositoValtoztat = Console.ReadLine();
                                 Ugy ugyValtoztat = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoValtoztat);
                                 ugyValtoztat.allapotvaltosztatas();
                                 break;
+                            case "4":
+                                Console.Write("Add meg az ügy azonosítóját, amelyhez bizonyítékot szeretnél hozzáadni: ");
+                                string ugyAzonositoBizonyitek = Console.ReadLine();
+                                Ugy ugyBizonyitek = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoBizonyitek);
+                                ugyBizonyitek.Bizonyitek_hozzaadasa_egyesevel();
+                                break;
+                            case "5":
+                                Console.Write("Add meg az ügy azonosítóját, amelyből bizonyítékot szeretnél törölni: ");
+                                string ugyAzonositoBizonyitekTorol = Console.ReadLine();
+                                Ugy ugyBizonyitekTorol = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoBizonyitekTorol);
+                                Console.Write("Add meg a bizonyíték azonosítóját, amelyet törölni szeretnél: ");
+                                string bizonyitekAzonositoTorol = Console.ReadLine();
+                                Bizonyitek bizonyitekTorol = ugyBizonyitekTorol.Ugy_bizonyitekok.Find(b => b.Azonosito == bizonyitekAzonositoTorol);
+                                ugyBizonyitekTorol.Bizonyitek_torlese(bizonyitekTorol);
+                                break;
+                            case "6":
+                                Console.Write("Add meg az ügy azonosítóját, amelyhez érintettet szeretnél hozzáadni: ");
+                                string ugyAzonositoErintett = Console.ReadLine();
+                                Ugy ugyErintett = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoErintett);
+                                ugyErintett.Erintettek_hozzaadasa_egyesevel();
+                                break;
+                            case "7":
+                                Console.Write("Add meg az ügy azonosítóját, amelyből érintettet szeretnél törölni: ");
+                                string ugyAzonositoErintettTorol = Console.ReadLine();
+                                Ugy ugyErintettTorol = adattar.Ugyek.Find(u => u.Ugyazonosito == ugyAzonositoErintettTorol);
+                                Console.Write("Add meg az érintett nevét, amelyet törölni szeretnél: ");
+                                string erintettNevTorol = Console.ReadLine();
+                                Szemely erintettTorol = ugyErintettTorol.Ugy_erintettek.Find(s => s.Nev == erintettNevTorol);
+                                ugyErintettTorol.Erintettek_torlese(erintettTorol);
+                                break;
+
                         }
                         break;
                     case "2":
